@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         //Add one to our level number.
         level++;
         //Call InitGame to initialize our level.
-        InitGame();
+        //InitGame();
     }
 
     //Initializes the game for each level.
