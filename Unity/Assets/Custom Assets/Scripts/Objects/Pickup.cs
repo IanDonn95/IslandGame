@@ -17,4 +17,8 @@ public class Pickup : BaseItem {
     {
         Debug.Log("collision");
     }
+    public override void OnTriggerEnter2D(Collider2D coll)
+    {
+        Debug.Log("trigger");
+    }
 }

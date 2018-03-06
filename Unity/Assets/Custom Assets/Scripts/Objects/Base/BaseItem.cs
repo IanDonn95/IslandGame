@@ -14,7 +14,12 @@ public class BaseItem : BaseObject {
 		
 	}
 
-    public virtual void OnCollisionEnter2D(Collision2D coll) {
+    public virtual void OnCollisionEnter2D(Collision2D coll)
+    {
         Debug.Log("base");
+    }
+    public virtual void OnTriggerEnter2D(Collider2D coll)
+    {
+        Debug.Log("baseT");
     }
 }
