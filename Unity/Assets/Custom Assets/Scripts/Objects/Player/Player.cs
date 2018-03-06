@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Player : MovingObject {
-    protected override void OnCantMove<T>(T component)
-    {
-
-    }
-
+public class Player : BaseObject {
+    protected float speed = 3f;
+    
     // Use this for initialization
     protected override void Start () {
         base.Start();
@@ -22,11 +19,17 @@ public class Player : MovingObject {
 
         //Get input from the input manager, round it to an integer and store in vertical to set y axis move direction
         vertical = (int)(Input.GetAxisRaw("Vertical"));
-        if (horizontal != 0 || vertical != 0)
+        //Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
+        //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
+        //AttemptMove<BaseWall>(horizontal, vertical);
+        if (horizontal == 0 && vertical == 0)
         {
-            //Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
-            //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
-            AttemptMove<BaseWall>(horizontal, vertical);
+            rb2D.velocity = Vector2.zero;
+        } else {
+            Vector2 force = new Vector2(horizontal, vertical);
+            force /= force.magnitude;
+            force *= speed;
+            rb2D.velocity = force;
         }
     }
 }

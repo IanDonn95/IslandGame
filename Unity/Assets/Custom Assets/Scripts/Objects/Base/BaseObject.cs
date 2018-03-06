@@ -7,7 +7,7 @@ public abstract class BaseObject : MonoBehaviour {
     protected BoxCollider2D boxCollider;
     protected Rigidbody2D rb2D;
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
         rb2D = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
 	}
