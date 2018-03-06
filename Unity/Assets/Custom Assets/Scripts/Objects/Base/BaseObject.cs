@@ -17,8 +17,4 @@ public abstract class BaseObject : MonoBehaviour {
 		
 	}
 
-    public virtual void OnIntersect<T>(T other) where T : Component
-    {
-
-    }
 }
