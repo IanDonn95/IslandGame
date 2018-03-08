@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BaseItem : BaseObject {
 
-	// Use this for initialization
-	void Start () {
+    public string itemName = "base item";
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -21,5 +23,10 @@ public class BaseItem : BaseObject {
     public virtual void OnTriggerEnter2D(Collider2D coll)
     {
         Debug.Log("baseT");
+    }
+
+    public override string ToString()
+    {
+        return itemName;
     }
 }

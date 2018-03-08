@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class Player : BaseObject {
     protected float speed = 3f;
-    
+    private Inventory inventory;
     // Use this for initialization
     protected override void Start () {
         base.Start();
+        inventory = new Inventory();
 	}
+
+    public void CollectItem(BaseItem item)
+    {
+        inventory.AddItem(item);
+    }
 	
 	// Update is called once per frame
 	public void Update () {

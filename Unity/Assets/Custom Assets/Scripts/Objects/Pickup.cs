@@ -5,8 +5,8 @@ using UnityEngine;
 public class Pickup : BaseItem {
 
 	// Use this for initialization
-	void Start () {
-		
+	public void Start () {
+        this.itemName = "Test Pickup";
 	}
 	
 	// Update is called once per frame
@@ -20,5 +20,9 @@ public class Pickup : BaseItem {
     public override void OnTriggerEnter2D(Collider2D coll)
     {
         Debug.Log("trigger");
+        Player p = coll.gameObject.GetComponent<Player>();
+        Debug.Log("this- " + this);
+        p.CollectItem(this);
+        gameObject.active = false;
     }
 }
